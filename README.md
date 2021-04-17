@@ -1,1 +1,1 @@
-# FoliacionRemasterizado
+# PlantillaRemasterizada
