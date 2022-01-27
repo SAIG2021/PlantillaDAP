@@ -1,0 +1,14 @@
+C:\Users\Israel\source\repos\EDGARMANZANILLA\SAIG2021\PlantillaDAP\Negocios\bin\Debug\Negocios.dll
+C:\Users\Israel\source\repos\EDGARMANZANILLA\SAIG2021\PlantillaDAP\Negocios\bin\Debug\Negocios.pdb
+C:\Users\Israel\source\repos\EDGARMANZANILLA\SAIG2021\PlantillaDAP\Negocios\bin\Debug\Datos.dll
+C:\Users\Israel\source\repos\EDGARMANZANILLA\SAIG2021\PlantillaDAP\Negocios\bin\Debug\Entidades.dll
+C:\Users\Israel\source\repos\EDGARMANZANILLA\SAIG2021\PlantillaDAP\Negocios\bin\Debug\EntityFramework.dll
+C:\Users\Israel\source\repos\EDGARMANZANILLA\SAIG2021\PlantillaDAP\Negocios\bin\Debug\Datos.pdb
+C:\Users\Israel\source\repos\EDGARMANZANILLA\SAIG2021\PlantillaDAP\Negocios\bin\Debug\Datos.dll.config
+C:\Users\Israel\source\repos\EDGARMANZANILLA\SAIG2021\PlantillaDAP\Negocios\bin\Debug\Entidades.pdb
+C:\Users\Israel\source\repos\EDGARMANZANILLA\SAIG2021\PlantillaDAP\Negocios\bin\Debug\EntityFramework.xml
+C:\Users\Israel\source\repos\EDGARMANZANILLA\SAIG2021\PlantillaDAP\Negocios\obj\Debug\Negocios.csprojAssemblyReference.cache
+C:\Users\Israel\source\repos\EDGARMANZANILLA\SAIG2021\PlantillaDAP\Negocios\obj\Debug\Negocios.csproj.CoreCompileInputs.cache
+C:\Users\Israel\source\repos\EDGARMANZANILLA\SAIG2021\PlantillaDAP\Negocios\obj\Debug\Negocios.csproj.CopyComplete
+C:\Users\Israel\source\repos\EDGARMANZANILLA\SAIG2021\PlantillaDAP\Negocios\obj\Debug\Negocios.dll
+C:\Users\Israel\source\repos\EDGARMANZANILLA\SAIG2021\PlantillaDAP\Negocios\obj\Debug\Negocios.pdb

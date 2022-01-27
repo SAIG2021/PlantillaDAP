@@ -1,0 +1,14 @@
+C:\Users\Israel\source\repos\EDGARMANZANILLA\SAIG2021\PlantillaDAP\Datos\bin\Debug\Datos.dll.config
+C:\Users\Israel\source\repos\EDGARMANZANILLA\SAIG2021\PlantillaDAP\Datos\bin\Debug\Datos.dll
+C:\Users\Israel\source\repos\EDGARMANZANILLA\SAIG2021\PlantillaDAP\Datos\bin\Debug\Datos.pdb
+C:\Users\Israel\source\repos\EDGARMANZANILLA\SAIG2021\PlantillaDAP\Datos\bin\Debug\Entidades.dll
+C:\Users\Israel\source\repos\EDGARMANZANILLA\SAIG2021\PlantillaDAP\Datos\bin\Debug\EntityFramework.dll
+C:\Users\Israel\source\repos\EDGARMANZANILLA\SAIG2021\PlantillaDAP\Datos\bin\Debug\EntityFramework.SqlServer.dll
+C:\Users\Israel\source\repos\EDGARMANZANILLA\SAIG2021\PlantillaDAP\Datos\bin\Debug\Entidades.pdb
+C:\Users\Israel\source\repos\EDGARMANZANILLA\SAIG2021\PlantillaDAP\Datos\bin\Debug\EntityFramework.xml
+C:\Users\Israel\source\repos\EDGARMANZANILLA\SAIG2021\PlantillaDAP\Datos\bin\Debug\EntityFramework.SqlServer.xml
+C:\Users\Israel\source\repos\EDGARMANZANILLA\SAIG2021\PlantillaDAP\Datos\obj\Debug\Datos.csprojAssemblyReference.cache
+C:\Users\Israel\source\repos\EDGARMANZANILLA\SAIG2021\PlantillaDAP\Datos\obj\Debug\Datos.csproj.CoreCompileInputs.cache
+C:\Users\Israel\source\repos\EDGARMANZANILLA\SAIG2021\PlantillaDAP\Datos\obj\Debug\Datos.csproj.CopyComplete
+C:\Users\Israel\source\repos\EDGARMANZANILLA\SAIG2021\PlantillaDAP\Datos\obj\Debug\Datos.dll
+C:\Users\Israel\source\repos\EDGARMANZANILLA\SAIG2021\PlantillaDAP\Datos\obj\Debug\Datos.pdb

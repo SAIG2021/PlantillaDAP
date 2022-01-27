@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="1b59363b7c154a469ae8f7d535a160ef" Name="Diagram1">
+        <EntityTypeShape EntityType="DBProyectoPlantillaMVCFrameworkModel.Cat_Materias" Width="1.5" PointX="3" PointY="1" IsExpanded="true" />
+        <EntityTypeShape EntityType="DBProyectoPlantillaMVCFrameworkModel.sysdiagram" Width="1.5" PointX="5.75" PointY="4.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="DBProyectoPlantillaMVCFrameworkModel.tbl_Alumnos" Width="1.5" PointX="3" PointY="5" IsExpanded="true" />
+        <EntityTypeShape EntityType="DBProyectoPlantillaMVCFrameworkModel.tbl_Especialidades" Width="1.5" PointX="0.75" PointY="1.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="DBProyectoPlantillaMVCFrameworkModel.tbl_IdMateria_IdAlumno_NN" Width="1.5" PointX="5.25" PointY="1.25" IsExpanded="true" />
+        <AssociationConnector Association="DBProyectoPlantillaMVCFrameworkModel.FK_Cat_Materias_tbl_Especialidades" ManuallyRouted="false" />
+        <AssociationConnector Association="DBProyectoPlantillaMVCFrameworkModel.FK_tbl_IdMateria_IdAlumno_NN_Cat_Materias" ManuallyRouted="false" />
+        <AssociationConnector Association="DBProyectoPlantillaMVCFrameworkModel.FK_tbl_IdMateria_IdAlumno_NN_tbl_Alumnos" ManuallyRouted="false" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

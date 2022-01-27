@@ -1,0 +1,114 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="DBProyectoPlantillaMVCFrameworkModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityType Name="Cat_Materias">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="NombreMateria" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="Abreviatura" Type="String" MaxLength="4" FixedLength="true" Unicode="true" Nullable="false" />
+    <Property Name="EstaCertificada" Type="Boolean" Nullable="false" />
+    <Property Name="IdEspecialidad" Type="Int32" />
+    <Property Name="Activo" Type="Boolean" Nullable="false" />
+    <NavigationProperty Name="tbl_Especialidades" Relationship="Self.FK_Cat_Materias_tbl_Especialidades" FromRole="Cat_Materias" ToRole="tbl_Especialidades" />
+    <NavigationProperty Name="tbl_IdMateria_IdAlumno_NN" Relationship="Self.FK_tbl_IdMateria_IdAlumno_NN_Cat_Materias" FromRole="Cat_Materias" ToRole="tbl_IdMateria_IdAlumno_NN" />
+  </EntityType>
+  <EntityType Name="sysdiagram">
+    <Key>
+      <PropertyRef Name="diagram_id" />
+    </Key>
+    <Property Name="name" Type="String" MaxLength="128" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="principal_id" Type="Int32" Nullable="false" />
+    <Property Name="diagram_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="version" Type="Int32" />
+    <Property Name="definition" Type="Binary" MaxLength="Max" FixedLength="false" />
+  </EntityType>
+  <EntityType Name="tbl_Alumnos">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Nombre" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="APaterno" Type="String" MaxLength="30" FixedLength="false" Unicode="true" />
+    <Property Name="AMaterno" Type="String" MaxLength="30" FixedLength="false" Unicode="true" />
+    <Property Name="Edad" Type="Int32" Nullable="false" />
+    <Property Name="Activo" Type="Boolean" Nullable="false" />
+    <NavigationProperty Name="tbl_IdMateria_IdAlumno_NN" Relationship="Self.FK_tbl_IdMateria_IdAlumno_NN_tbl_Alumnos" FromRole="tbl_Alumnos" ToRole="tbl_IdMateria_IdAlumno_NN" />
+  </EntityType>
+  <EntityType Name="tbl_Especialidades">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Especialidad" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="Titulo" Type="Boolean" Nullable="false" />
+    <Property Name="Tecnico" Type="Boolean" Nullable="false" />
+    <Property Name="Activo" Type="Boolean" Nullable="false" />
+    <NavigationProperty Name="Cat_Materias" Relationship="Self.FK_Cat_Materias_tbl_Especialidades" FromRole="tbl_Especialidades" ToRole="Cat_Materias" />
+  </EntityType>
+  <EntityType Name="tbl_IdMateria_IdAlumno_NN">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="IdMateria" Type="Int32" Nullable="false" />
+    <Property Name="IdAlumno" Type="Int32" Nullable="false" />
+    <NavigationProperty Name="Cat_Materias" Relationship="Self.FK_tbl_IdMateria_IdAlumno_NN_Cat_Materias" FromRole="tbl_IdMateria_IdAlumno_NN" ToRole="Cat_Materias" />
+    <NavigationProperty Name="tbl_Alumnos" Relationship="Self.FK_tbl_IdMateria_IdAlumno_NN_tbl_Alumnos" FromRole="tbl_IdMateria_IdAlumno_NN" ToRole="tbl_Alumnos" />
+  </EntityType>
+  <Association Name="FK_Cat_Materias_tbl_Especialidades">
+    <End Role="tbl_Especialidades" Type="Self.tbl_Especialidades" Multiplicity="0..1" />
+    <End Role="Cat_Materias" Type="Self.Cat_Materias" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="tbl_Especialidades">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Cat_Materias">
+        <PropertyRef Name="IdEspecialidad" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_tbl_IdMateria_IdAlumno_NN_Cat_Materias">
+    <End Role="Cat_Materias" Type="Self.Cat_Materias" Multiplicity="1" />
+    <End Role="tbl_IdMateria_IdAlumno_NN" Type="Self.tbl_IdMateria_IdAlumno_NN" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Cat_Materias">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="tbl_IdMateria_IdAlumno_NN">
+        <PropertyRef Name="IdMateria" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_tbl_IdMateria_IdAlumno_NN_tbl_Alumnos">
+    <End Role="tbl_Alumnos" Type="Self.tbl_Alumnos" Multiplicity="1" />
+    <End Role="tbl_IdMateria_IdAlumno_NN" Type="Self.tbl_IdMateria_IdAlumno_NN" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="tbl_Alumnos">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="tbl_IdMateria_IdAlumno_NN">
+        <PropertyRef Name="IdAlumno" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="DBProyectoPlantillaMVCFrameworkEntities" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="Cat_Materias" EntityType="Self.Cat_Materias" />
+    <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagram" />
+    <EntitySet Name="tbl_Alumnos" EntityType="Self.tbl_Alumnos" />
+    <EntitySet Name="tbl_Especialidades" EntityType="Self.tbl_Especialidades" />
+    <EntitySet Name="tbl_IdMateria_IdAlumno_NN" EntityType="Self.tbl_IdMateria_IdAlumno_NN" />
+    <AssociationSet Name="FK_Cat_Materias_tbl_Especialidades" Association="Self.FK_Cat_Materias_tbl_Especialidades">
+      <End Role="tbl_Especialidades" EntitySet="tbl_Especialidades" />
+      <End Role="Cat_Materias" EntitySet="Cat_Materias" />
+    </AssociationSet>
+    <AssociationSet Name="FK_tbl_IdMateria_IdAlumno_NN_Cat_Materias" Association="Self.FK_tbl_IdMateria_IdAlumno_NN_Cat_Materias">
+      <End Role="Cat_Materias" EntitySet="Cat_Materias" />
+      <End Role="tbl_IdMateria_IdAlumno_NN" EntitySet="tbl_IdMateria_IdAlumno_NN" />
+    </AssociationSet>
+    <AssociationSet Name="FK_tbl_IdMateria_IdAlumno_NN_tbl_Alumnos" Association="Self.FK_tbl_IdMateria_IdAlumno_NN_tbl_Alumnos">
+      <End Role="tbl_Alumnos" EntitySet="tbl_Alumnos" />
+      <End Role="tbl_IdMateria_IdAlumno_NN" EntitySet="tbl_IdMateria_IdAlumno_NN" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>

@@ -171,7 +171,7 @@ a.article:hover {
 
 
 /* ---------------------------------------------------
-    Footer
+    MODIFICACIONES GENERALES
 ----------------------------------------------------- */
 
 
@@ -190,5 +190,50 @@ a.article:hover {
 }
 
 
+.margenSection {
+    margin-top: 50px;
+    margin-bottom: 50px;
+}
+
+
+
+
+p {
+    color: black;
+    margin-left: 30px;
+    font-size: 1.4em;
+    text-align: center;
+}
+
+
+button {
+    text-align: center;
+}
+
+/* ---------------------------------------------------
+    CSS PARA MODIFICAR DATATABLE
+----------------------------------------------------- */
+
+
+
+.tabla {
+    text-align: center;
+    background: #74BC7C;
+}
+
+caption {
+    background: #74BC7C;
+    color: black;
+    font-weight: bold;
+    text-align: center;
+    caption-side: top;
+    font-size: 20px;
+}
+
+
+
+.table-hover tbody tr:hover td, .table-hover tbody tr:hover th {
+    background-color: #74BC7C;
+}
 
 

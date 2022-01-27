@@ -1,0 +1,500 @@
+﻿@model Dictionary<int, string>
+
+
+
+
+<seccion id="test" class="margenSection  card col-12  offset-md-2 col-md-8 text-center" style="box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);">
+
+    </br>
+    </br>
+
+    <div class="margenSection row">
+
+        <h4 class="col-12 text-center text-uppercase"> EJEMPLO DE SELECCION: </h4>
+
+
+
+
+        <div class="col-12 offset-md-3 col-md-6 text-center">
+            <div class="form-group">
+                <br />
+                <select class="form-control" id="IdEjemplo" required>
+                    <option value="" disabled selected>Seleccione una referencia...</option>
+                    @if (Model.Count > 0)
+                    {
+                        foreach (var nuevoregistro in Model)
+                        {
+                            <option value="@nuevoregistro.Key">@nuevoregistro.Value </option>
+                        }
+
+                    }
+                    else
+                    {
+                        <option value="" disabled selected>Sin datos para mostrar</option>
+                    }
+
+                </select>
+            </div>
+        </div>
+
+
+
+        <div class="col-12 text-center">
+            <br />
+            <button id="BuscarIdMateria" type="button" class="btn btn-lg btn-success"><i class="far fa-arrow-alt-circle-right"></i> Peticion Tran_SQLConexion  <i class="far fa-arrow-alt-circle-right"></i></button>
+            <button type="button" class="btn btn-lg btn-success" onclick="PetionAXIOS('@Url.Content("~/Home/RealizarUnaAccion")')" ><i class="far fa-arrow-alt-circle-right"></i> Petion Axios  <i class="far fa-arrow-alt-circle-right"></i></button>
+
+        </div>
+
+
+    </div>
+
+    </br>
+    </br>
+</seccion>
+
+
+
+
+
+
+
+<!-- Modal para ver alumnos en materias   -->
+<div class="modal fade" id="PruebaModal" data-backdrop="static" data-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered modal-dialog modal-xl">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h4 class="modal-title col-11 text-uppercase text-center">Lista de alumnos que toman la materia seleccionada </h4>
+                <button type="button" class="close btn-primary" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+
+                <div class="margenSection">
+                    <div class="table-responsive">
+
+                        <div id="divTblAlumnos">
+
+                            <table id="TblAlumnos" class='table table-striped table-bordered table-hover' style="display:block">
+                                <caption class="text-uppercase">Historico DE  SEGUIMIENTO </caption>
+                                <thead class="tabla">
+                                    <tr class="text-center text-uppercase">
+
+                                        <th>Detalles o problemas con nominas </th>
+                                    </tr>
+                                </thead>
+
+
+                            </table>
+
+                        </div>
+                    </div>
+                </div>
+
+
+
+            </div>
+            <div class="modal-footer">
+
+
+                <button type="button" class="btn btn-primary" onclick="$('#PruebaModal').modal('hide')">Cerrar</button>
+
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+
+
+
+
+<!-- Modal para ver especialidad  -->
+<div class="modal fade" id="VerEspecialidad" data-backdrop="static" data-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered modal-dialog modal-xl">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h4 class="modal-title col-11 text-uppercase text-center">Detalles de especialidad </h4>
+                <button type="button" class="close btn-primary" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+
+                <div class="margenSection">
+                    <div class="table-responsive">
+
+                        <div id="divTblEspecialidad">
+
+                            <table id="TblEspecialidad" class='table table-striped table-bordered table-hover' style="display:block">
+                              
+
+
+                            </table>
+
+                        </div>
+                    </div>
+                </div>
+
+
+
+            </div>
+            <div class="modal-footer">
+
+
+                <button type="button" class="btn btn-primary" onclick="$('#VerEspecialidad').modal('hide')">Cerrar</button>
+
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+
+<style>
+
+    .modal.fade {
+        background: rgba(0,0,0,0.9);
+    }
+
+
+</style>
+
+
+
+
+
+
+
+
+
+
+<script>
+
+
+
+    // ver Alumnos en materias //
+    function DibujarTblAlumnos() {
+        $("#divTblAlumnos").append(
+
+            "<table id='TblAlumnos'  class='margenSection table table-striped display table-bordered table-hover' cellspacing='0'  style='width:100%'>" +
+            " <caption class='text-uppercase'>Alumnos en Materia selecionada</caption>"
+            + "<thead class='tabla'>" +
+
+            "<tr class='text-center text-uppercase'>" +
+
+
+            "<th> Id </th>" +
+            "<th> Matematicas </th>" +
+            "<th> Nombre </th>" +
+            "<th> Apelllido Paterno </th>" +
+            "<th> Apelllido Materno </th>" +
+            "<th> Edad </th>" +
+            "<th> Activo </th>" +
+            "<th id='pruebaID'> Especialidad </th>" +
+
+            "</tr>" +
+            "</thead>" +
+            "</table>"
+        );
+    };
+
+    let RegistrosTabla;
+    function PintarDatosTblAlumnos(datos) {
+        RegistrosTabla = $('#TblAlumnos').DataTable({
+            "ordering": true,
+            "info": false,
+            "searching": false,
+            "paging": false,
+            "lengthMenu": [5, 10],
+            "language":
+            {
+                "processing": "Procesando...",
+                "lengthMenu": "Mostrar _MENU_ registros",
+                "zeroRecords": "No se encontraron resultados",
+                "emptyTable": "Ningún dato disponible en esta tabla",
+                "infoEmpty": "Mostrando registros del 0 al 0 de un total de 0 registros",
+                "infoFiltered": "(filtrado de un total de _MAX_ registros)",
+                "search": "Buscar:",
+                "info": "Mostrando de _START_ a _END_ de _TOTAL_ entradas",
+                "paginate": {
+                    "first": "Primero",
+                    "last": "Último",
+                    "next": "Siguiente",
+                    "previous": "Anterior"
+                }
+            },
+            "data": datos,
+            "columns": [
+
+                { "data": "IdVirtual" },
+                { "data": "Materia" },
+                { "data": "NombreAlumno" },
+                { "data": "APaternoAlumno" },
+                { "data": "AMaternoAlumno" },
+                { "data": "Edad" },
+                { "data": "ActivoAlumno" }
+
+            ],
+            "columnDefs": [
+
+                { className: "text-center col-2", visible: true, "targets": 0, },
+                { className: "text-center col-2", visible: true, "targets": 1, },
+                { className: "text-center col-2", visible: true, "targets": 2, },
+                { className: "text-center col-2", visible: true, "targets": 3, },
+                { className: "text-center col-1", visible: true, "targets": 5, },
+                { className: "text-center col-1", visible: true, "targets": 6, },
+                {
+                    className: "text-center col-1",
+                    visible: true,
+                    "targets": [7],
+                    render: function (data, type, row) {
+                        return '<h4 class="verEspecialidad bg-success btn  text-uppercase text-light"> Ver Especialidad </h4>';
+                    }
+                }
+
+
+
+            ],
+            "order": [[0, 'desc']]
+
+        });
+
+    };
+
+    /***********************************************************************************************************************************************************************************************/
+
+
+
+    // ver Especialidad de materia//
+    function DibujarTblEspecialidad() {
+        $("#divTblEspecialidad").append(
+
+            "<table id='TblEspecialidad'  class='margenSection table table-striped display table-bordered table-hover' cellspacing='0'  style='width:100%'>" +
+            " <caption class='text-uppercase'>Especialidad de materia seleccionada</caption>"
+            + "<thead class='tabla'>" +
+
+            "<tr class='text-center text-uppercase'>" +
+
+
+            "<th> Id </th>" +
+            "<th> Especialidad</th>" +
+            "<th> Tiene Titulo </th>" +
+            "<th> Tiene Certificado Tecnico </th>" +
+            "<th> AÑos Activos </th>" +
+            "<th> Activo </th>" +
+            
+            "</tr>" +
+            "</thead>" +
+            "</table>"
+        );
+    };
+
+
+    function PintarDatosTblEspecialidad(datos) {
+        $('#TblEspecialidad').DataTable({
+            "ordering": true,
+            "info": false,
+            "searching": false,
+            "paging": false,
+            "lengthMenu": [5, 10],
+            "language":
+            {
+                "processing": "Procesando...",
+                "lengthMenu": "Mostrar _MENU_ registros",
+                "zeroRecords": "No se encontraron resultados",
+                "emptyTable": "Ningún dato disponible en esta tabla",
+                "infoEmpty": "Mostrando registros del 0 al 0 de un total de 0 registros",
+                "infoFiltered": "(filtrado de un total de _MAX_ registros)",
+                "search": "Buscar:",
+                "info": "Mostrando de _START_ a _END_ de _TOTAL_ entradas",
+                "paginate": {
+                    "first": "Primero",
+                    "last": "Último",
+                    "next": "Siguiente",
+                    "previous": "Anterior"
+                }
+            },
+            "data": datos,
+            "columns": [
+
+                { "data": "IdVirtual" },
+                { "data": "Especialidad" },
+                { "data": "Titulo" },
+                { "data": "Tecnico" },
+                { "data": "AniosActivo" },
+                { "data": "Activo" }
+
+            ],
+            "columnDefs": [
+
+                { className: "text-center col-1", visible: true, "targets": 0, },
+                { className: "text-center col-6", visible: true, "targets": 1, },
+                { className: "text-center col-2", visible: true, "targets": 2, },
+                { className: "text-center col-2", visible: true, "targets": 3, },
+                { className: "text-center col-1", visible: true, "targets": 5, }
+            
+            ],
+            "order": [[0, 'desc']]
+
+        });
+
+    };
+
+
+
+
+
+
+
+
+    async function PetionAXIOS(cadenaPath) {
+
+        console.log(cadenaPath);
+        
+            //const response = await axios.post(cadenaPath, { IdMateria: opcionSeleccionado.value });
+            const response = await axios.post(cadenaPath);
+           
+
+            if (response.status == 200) {
+
+                alert(response.data.VariableKey);
+            }
+
+       
+    }
+
+
+
+
+    $(document).ready(function () {
+
+        let opcionSeleccionado = null;
+        const ItemSeleccionado = document.getElementById("IdEjemplo")
+        ItemSeleccionado.addEventListener("change",
+            function () {
+                opcionSeleccionado = null;
+
+                opcionSeleccionado = this.options[ItemSeleccionado.selectedIndex];
+
+                console.log(opcionSeleccionado.value);
+                //console.log(opcionSeleccionado.text);
+                // console.log(nominaSeleccionadaUsuario.value);
+
+
+            }
+        );
+
+
+
+        const BuscarIdMateria = document.getElementById("BuscarIdMateria").addEventListener("click",
+            function () {
+
+
+                if (opcionSeleccionado != null) {
+
+
+                    MensajeCargando();
+
+                    let buscarIdMateria = "{'IdMateria':'" + opcionSeleccionado.value + "'}";
+
+                    console.log(buscarIdMateria)
+                    $.ajax({
+                        url: 'ObtenerAlumnos',
+                        data: buscarIdMateria,
+                        type: "POST",
+                        contentType: "application/json; charset=utf-8",
+                        success: function (response) {
+
+                            console.log(response.ListaEjemplo)
+
+                            $('#divTblAlumnos').empty();
+                            DibujarTblAlumnos();
+                            PintarDatosTblAlumnos(response.ListaEjemplo);
+
+                            //OCULTAR EL MODAL DONDE SE ENCUENTRA LA VISTA PARCIAL
+                            $('#PruebaModal').modal('show');
+
+
+                            OcultarMensajeCargando();
+
+                        }, error: function (jqXHR, textStatus) {
+                            MensajeErrorSweet("Ocurrio un error intente de nuevo " + textStatus)
+                            OcultarMensajeCargando();
+                        }
+                    });
+
+
+                } else {
+                    MensajeErrorSweet("Seleccione una materia", "No Selecciono ninguna opcion");
+                }
+
+
+            }
+        );
+
+
+
+
+
+
+
+
+
+
+
+        $(document).on("click", ".verEspecialidad", function () {
+
+            // Decomentar para volver al funcionamiendo original
+
+            let datoIdbuscar = RegistrosTabla.row($(this).parents("tr")).data();
+
+            console.log(datoIdbuscar.IdMateria);
+
+            MensajeCargando();
+            let buscarEspecialidadIdMateria = "{'IdMateria':'"+datoIdbuscar.IdMateria+"'}";
+            
+            $.ajax({
+                url: 'ObtenerEspecialidadIdMateria',
+                data: buscarEspecialidadIdMateria,
+                type: "POST",
+                contentType: "application/json; charset=utf-8",
+                success: function (response) {
+
+                    console.log(response.ListaEjemplo)
+
+                    $('#divTblEspecialidad').empty();
+                    DibujarTblEspecialidad()
+                    PintarDatosTblEspecialidad(response.ListaEjemplo);
+
+                    //OCULTAR EL MODAL DONDE SE ENCUENTRA LA VISTA PARCIAL
+                    $('#VerEspecialidad').modal('show');
+
+
+                    OcultarMensajeCargando();
+
+                }, error: function (jqXHR, textStatus) {
+                    MensajeErrorSweet("Ocurrio un error intente de nuevo " + textStatus)
+                    OcultarMensajeCargando();
+                }
+            });
+
+
+        });
+
+
+
+
+
+
+    });
+
+
+
+
+
+
+</script>

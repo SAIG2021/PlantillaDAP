@@ -1,0 +1,6 @@
+C:\Users\Israel\source\repos\EDGARMANZANILLA\SAIG2021\PlantillaDAP\Entidades\bin\Debug\Entidades.dll
+C:\Users\Israel\source\repos\EDGARMANZANILLA\SAIG2021\PlantillaDAP\Entidades\bin\Debug\Entidades.pdb
+C:\Users\Israel\source\repos\EDGARMANZANILLA\SAIG2021\PlantillaDAP\Entidades\obj\Debug\Entidades.csproj.CoreCompileInputs.cache
+C:\Users\Israel\source\repos\EDGARMANZANILLA\SAIG2021\PlantillaDAP\Entidades\obj\Debug\Entidades.dll
+C:\Users\Israel\source\repos\EDGARMANZANILLA\SAIG2021\PlantillaDAP\Entidades\obj\Debug\Entidades.pdb
+C:\Users\Israel\source\repos\EDGARMANZANILLA\SAIG2021\PlantillaDAP\Entidades\obj\Debug\Entidades.csprojAssemblyReference.cache

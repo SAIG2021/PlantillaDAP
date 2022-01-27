@@ -1,7 +1,97 @@
 ﻿@{
-    ViewBag.Title = "About";
-}
-<h2>@ViewBag.Title.</h2>
-<h3>@ViewBag.Message</h3>
+    ViewBag.Icono = "fas fa-folder-plus";
+    ViewBag.Title = "INFO ACERCA DE";
 
-<p>Use this area to provide additional information.</p>
+
+}
+
+<div class="text-center">
+    <h2>@ViewBag.Title.</h2>
+    <h3>@ViewBag.Message</h3>
+
+    </br>
+    </br>
+    </br>
+
+    <h4> What is Lorem Ipsum?</h4>
+    <p class="text-justify">
+
+        Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.
+    </p>
+
+
+    </br>
+    </br>
+
+    <button id="verVistaParcial" class="btn btn-success btn-lg">Abrir una vista parcial </button>
+
+</div>
+
+</br>
+</br>
+</br>
+</br>
+</br>
+</br>
+
+<div id="RenderVistaParcial">
+
+</div>
+
+</br>
+</br>
+</br>
+</br>
+</br>
+
+
+<script>
+
+    
+
+    $(document).ready(function () {
+
+
+        const verVista = document.getElementById("verVistaParcial");
+        verVista.addEventListener("click",
+            function () {
+
+                 MensajeCargando();
+                $.ajax({
+                    url: '/home/verVistaParcial',
+                    type: "GET",
+                    contentType: "application/json; charset=utf-8",
+                    success: function (response) {
+
+                        if (response.RespuestaServidor === "500") {
+                            MensajeErrorSweet(response.MensajeError);
+                            $('#RenderVistaParcial').html('');
+                        } else {
+                            $('#RenderVistaParcial').html('');
+                            $('#RenderVistaParcial').html(response);
+                            
+                        }
+
+                      OcultarMensajeCargando();
+                    }
+                });
+
+
+
+
+
+            }
+      );
+
+
+
+
+   });
+
+
+
+
+
+
+</script>
+
