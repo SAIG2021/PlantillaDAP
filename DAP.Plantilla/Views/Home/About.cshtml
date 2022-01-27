@@ -45,53 +45,28 @@
 </br>
 
 
-<script>
-
-    
-
-    $(document).ready(function () {
-
-
-        const verVista = document.getElementById("verVistaParcial");
-        verVista.addEventListener("click",
-            function () {
-
-                 MensajeCargando();
-                $.ajax({
-                    url: '/home/verVistaParcial',
-                    type: "GET",
-                    contentType: "application/json; charset=utf-8",
-                    success: function (response) {
-
-                        if (response.RespuestaServidor === "500") {
-                            MensajeErrorSweet(response.MensajeError);
-                            $('#RenderVistaParcial').html('');
-                        } else {
-                            $('#RenderVistaParcial').html('');
-                            $('#RenderVistaParcial').html(response);
-                            
-                        }
-
-                      OcultarMensajeCargando();
-                    }
-                });
-
-
-
-
-
-            }
-      );
-
-
-
-
-   });
 
 
 
 
 
 
-</script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 

@@ -146,12 +146,12 @@
     <Content Include="Content\Site.css" />
     <Content Include="Imagenes\Control.png" />
     <Content Include="Imagenes\crecerengrande.png" />
+    <Content Include="Imagenes\LOGO SAFIN_ HORIZONTAL.png" />
     <Content Include="Imagenes\logo%282016%29.png" />
     <Content Include="Imagenes\LogoCrecerGrande.png" />
     <Content Include="Imagenes\LogoGeneral.png" />
     <Content Include="Imagenes\LogoGeneralSimple.png" />
     <Content Include="Imagenes\LOGO_SAFIN.png" />
-    <Content Include="Imagenes\LOGO_SAFIN_ HORIZONTAL.png" />
     <Content Include="Imagenes\LOGO_SAIG HORIZONTAL.png" />
     <Content Include="Imagenes\Mov.png" />
     <Content Include="Imagenes\Movimientos.png" />
@@ -238,6 +238,7 @@
     <Content Include="Scripts\popper-utils.min.js" />
     <Content Include="Scripts\popper.js" />
     <Content Include="Scripts\popper.min.js" />
+    <Content Include="Scripts\SCRIPTS_DEL_PROYECTO_VISTAS\About_verVistaParcial.js" />
     <Content Include="Scripts\select2-4.1.0-rc.0\css\select2.css" />
     <Content Include="Scripts\select2-4.1.0-rc.0\css\select2.min.css" />
     <Content Include="Scripts\select2-4.1.0-rc.0\js\i18n\af.js" />

@@ -24,7 +24,7 @@ namespace DAP.Plantilla.Controllers
 
         public ActionResult Contact()
         {
-            ViewBag.Message = "Your contact page.";
+            ViewBag.Message = "PAGINA DE INFORMACION GENERAL .";
 
             return View();
         }

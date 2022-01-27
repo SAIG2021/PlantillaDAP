@@ -14,6 +14,7 @@
     <!-- AXIOS CDN -->
     <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
 
+    <!-- JQUERY 3.5 -->
     <script src="~/Scripts/jquery-3.5.1.min.js"></script>
 
     <script src="~/Scripts/popper.min.js"></script>
@@ -96,7 +97,7 @@
                 <li class="false ">
 
 
-              
+
 
 
                 <li>
@@ -107,7 +108,7 @@
                     <ul class="collapse list-unstyled" id="pageSubmenu">
                         <li>
                             <a href="@Url.Action("Contact", "Home")">Ir a "Extras"</a>
-                            
+
                         </li>
                         <li>
                             <a href="@Url.Action("About", "Home")">Ir "Modales / datatable"</a>
@@ -167,8 +168,6 @@
                 </div>
             </nav>
             <!-- Fin del Navbar  -->
-
-
             <!-- Inicio del Nombre del sistema-->
 
             <section>
@@ -179,7 +178,7 @@
 
                     <div class="col" style="text-align: right;">
 
-                        <p class="fa fa-cube" style="margin-right:30px; font-size: 1.4em; color: #74BC7C;">&nbsp NOMBRE_APLICACION v01</p>
+                        <p class="fa fa-cube" style="margin-right:30px; font-size: 1.4em; color: #74BC7C;">&nbsp APLICACION v01</p>
 
                     </div>
                 </div>
@@ -194,6 +193,9 @@
 
             <div class="container-fluid">
                 @RenderBody()
+
+               html
+                script
             </div>
 
 
@@ -216,10 +218,10 @@
 
     <footer id="pieDePagina" class=" fixed-bottom" style="background: #74BC7C;     height: 70px;  ">
 
-        <section class="row" >
+        <section class="row">
 
             <div class="col-12 text-center">
-                <img src="~/Imagenes/LOGO_SAFIN_ HORIZONTAL.png" style="height: 55px; margin-top:6px;" />
+                <img src="~/Imagenes/LOGO SAFIN_ HORIZONTAL.png" style="height: 55px; margin-top:6px;" />
             </div>
 
         </section>
@@ -243,14 +245,15 @@
 
             $('#sidebarCollapse').on('click', function () {
                 $('#sidebar').toggleClass('active');
-               /* $('footer').css(background: #000000);*/
+                /* $('footer').css(background: #000000);*/
 
             });
         });
 
 
-            @RenderSection("Scripts", required: false);
     </script>
+    <script src="~/Scripts/SCRIPTS_DEL_PROYECTO_VISTAS/About_verVistaParcial.js"></script>
+    @RenderSection("Scripts", required: false)
 </body>
 
 
