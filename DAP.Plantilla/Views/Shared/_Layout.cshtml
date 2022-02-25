@@ -194,8 +194,7 @@
             <div class="container-fluid">
                 @RenderBody()
 
-               html
-                script
+              
             </div>
 
 
@@ -237,24 +236,27 @@
 
 
 
-
-    <script type="text/javascript">
-        $(document).ready(function () {
-            $('#sidebar').toggleClass('active');
-
-
-            $('#sidebarCollapse').on('click', function () {
-                $('#sidebar').toggleClass('active');
-                /* $('footer').css(background: #000000);*/
-
-            });
-        });
-
-
-    </script>
-    <script src="~/Scripts/SCRIPTS_DEL_PROYECTO_VISTAS/About_verVistaParcial.js"></script>
-    @RenderSection("Scripts", required: false)
 </body>
 
 
 </html>
+
+
+
+
+<script type="text/javascript">
+    $(document).ready(function () {
+        $('#sidebar').toggleClass('active');
+
+
+        $('#sidebarCollapse').on('click', function () {
+            $('#sidebar').toggleClass('active');
+            /* $('footer').css(background: #000000);*/
+
+        });
+    });
+
+
+</script>
+<script src="~/Scripts/SCRIPTS_DEL_PROYECTO_VISTAS/About_verVistaParcial.js"></script>
+@RenderSection("Scripts", required: false)
